@@ -2,12 +2,27 @@
 
 html,
 body {
-  width: 300px;
-  height: 400px;
+  width: 360px;
+  height: 500px;
   padding: 0;
   margin: 0;
 }
 
 body {
-  background-color: rgb(36, 36, 36);
+  background-color: rgb(17, 24, 39); /* bg-gray-900 */
+  color: white;
+}
+
+/* Animation for loading */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }

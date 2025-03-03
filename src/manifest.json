@@ -1,6 +1,8 @@
 {
   "{{chrome}}.manifest_version": 3,
   "{{firefox}}.manifest_version": 2,
+  "name": "X/Twitter AI Reply Generator",
+  "description": "Generate intelligent replies for Twitter/X posts using AI automation",
   "icons": {
     "16": "icon/16.png",
     "32": "icon/32.png",
@@ -17,5 +19,17 @@
   "background": {
     "{{chrome}}.service_worker": "src/background.ts",
     "{{firefox}}.scripts": ["src/background.ts"]
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.twitter.com/*", "*://*.x.com/*"],
+      "js": ["src/content-scripts/index.ts"]
+    }
+  ],
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": [
+    "*://*.twitter.com/*",
+    "*://*.x.com/*",
+    "https://api.openai.com/*"
+  ]
 }
